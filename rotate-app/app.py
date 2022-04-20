@@ -20,6 +20,7 @@ def create_rotate(path_file):
 
     original_image = Image.open(path_file)
     transposed = original_image.transpose(Image.Transpose.ROTATE_180)
+    
 
     name, ext = os.path.splitext(filename)
     transposed.save(output_folder + name + NEW + ext)
