@@ -15,22 +15,20 @@ const kafka = new Kafka({
 })
 
 const consumer = kafka.consumer({ groupId: 'notify-group' })
+const bot = new TelegramBot(token, {polling: true});
 
 const run = async () => {
   // Consuming
   await consumer.connect()
   
   await consumer.subscribe({ topic: TOPIC, fromBeginning: true })
-  console.log('conectou')
+
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
-      console.log('sim')
-      const bot = new TelegramBot(token, {polling: true});
-
       if (message.action == 'rotate') {
-        let action = 'rotacionado'
+        action = 'rotacionado'
       } else {
-        let action = 'transformado em preto e branco'
+        action = 'transformado em preto e branco'
       }
 
       const text = `O arquivo ${message.new_file} foi ${action}`
