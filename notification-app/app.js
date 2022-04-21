@@ -7,7 +7,7 @@ let action = ''
 
 const kafka = new Kafka({
   clientId: 'client-1',
-  brokers: ['localhost:19091', 'localhost:19092', 'localhost:19093'],
+  brokers: ['kafka:19091', 'kafka:19092', 'kafka:19093'],
   retry: {
     initialRetryTime: 300,
     retries: 10
