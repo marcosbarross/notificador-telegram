@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "kafkajs": "^1.16.0"
+    "kafkajs": "^1.16.0",
+    "node-telegram-bot-api": "^0.56.0"
   }
 }
